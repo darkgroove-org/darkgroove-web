@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Biotif';
+  src: url('../fonts/Biotif-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Biotif';
+  src: url('../fonts/Biotif-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+
+  --pri-color: #3367F6;
+  --sec-color: #2D2D4A;
+  --bg-color: #0E0F15;
+  --bg-nav-place-holder: #15161F;
+
+  --stroke-color: #585E9F;
+  --light-stroke-color: #4B5272;
+
+  --text-color: #FFFFFF;
+  --text-sec-color: #698DF1;
+  --text-place-holder: #4B5272;
+
+}
+
+
+
+* { box-sizing: border-box; padding: 0; margin: 0; }
+body { background: var(--bg-color); color: var(--text-color); background-image: url('/imgs/bg-gradient.png'); background-size:cover; background-repeat: no-repeat;}
+
