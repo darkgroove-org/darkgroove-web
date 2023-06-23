@@ -16,11 +16,10 @@
 }
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-
   --pri-color: #3367F6;
+  --pri-color-filter: invert(30%) sepia(96%) saturate(2195%) hue-rotate(217deg) brightness(98%) contrast(98%);
+  --pri-color-hover: #305edc;
+
   --sec-color: #2D2D4A;
   --bg-color: #0E0F15;
   --bg-nav-place-holder: #15161F;
@@ -32,10 +31,20 @@
   --text-sec-color: #698DF1;
   --text-place-holder: #4B5272;
 
+  --white: #FFFFFF;
+
+  --white-filter: invert(99%) sepia(4%) saturate(5632%) hue-rotate(289deg) brightness(117%) contrast(100%);
+
+  --font-size: .95rem;
+  --font-size-xl: 4.2rem;
+  --font-size-l: 1.8rem;
+  --font-size-m: 1.3rem;
+  --font-size-s: .8rem;
+  --font-size-s: .7rem;
 }
 
 
 
 * { box-sizing: border-box; padding: 0; margin: 0; }
-body { background: var(--bg-color); color: var(--text-color); background-image: url('/imgs/bg-gradient.png'); background-size:cover; background-repeat: no-repeat;}
+body { background: var(--bg-color); color: var(--text-color); background-image: url('/imgs/bg-gradient.png'); background-size:cover; background-repeat: no-repeat; background-position: center top; height: 100vh;}
 

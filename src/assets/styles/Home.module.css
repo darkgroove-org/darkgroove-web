@@ -1,0 +1,4 @@
+.content { display: flex; align-items: center;
+    border: 1px solid red; height: 90vh;}
+.content .row { border: 1px solid blue;}
+.content .row .col-5 { gap: 2rem;}

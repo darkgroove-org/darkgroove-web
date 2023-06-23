@@ -1,0 +1,11 @@
+.title { font-size: var(--font-size-xl); font-weight: 500;}
+.subtitle { font-size: var(--font-size-l); }
+.text-m { font-size: var(--font-size-m); }
+.text-s { font-size: var(--font-size-s); }
+.text-xs { font-size: var(--font-size-xs); }
+
+.btnTypeOne { background-color: var(--pri-color); padding: .8rem 1.4rem; border-radius: 4px; font-size: var(--font-size-m); }
+.btnTypeOne:hover { background-color: var(--pri-color-hover); }
+
+.btnTypeTwo { padding: .8rem 1.4rem; border-radius: 4px; border: 1px solid var(--white); font-size: var(--font-size-m); }
+.btnTypeTwo:hover { background-color: rgba(255, 255, 255, 0.05); }

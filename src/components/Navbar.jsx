@@ -1,14 +1,18 @@
 'use client';
 
-
 import { useContext, useEffect, useState } from 'react';
 import { DataContext } from '@/context/DataContext';
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '@/assets/styles/Navbar.module.css'
 
+import SearchBar from '@/components/SearchBar'
+
 export default function Navbar() {
+
     const { address, setAddress, isConnected, setIsConnected, formatAddress } = useContext(DataContext);
+
+    const [error, setError] = useState();
 
     const networks = {
         fantomtestnet: {
@@ -53,6 +57,15 @@ export default function Navbar() {
         console.log({ chainId });
     }
 
+    useEffect(() => {
+      if (typeof window.ethereum !== 'undefined') {
+        window.ethereum.on("chainChanged", networkChanged);
+        return () => {
+          window.ethereum.removeListener("chainChanged", networkChanged);
+        };
+      }
+    }, []);
+
     const connectMetamask = async () => {
         if (window.ethereum) {
           try {
@@ -63,7 +76,7 @@ export default function Navbar() {
             setAddress(account[0]);
             // getUsername(account[0]);
             console.log(address);
-            // await handleNetworkSwitch("fantomtestnet");
+            await handleNetworkSwitch("fantomtestnet");
           } catch (error) {
             console.log('Error connecting to Fantom Network');
           }
@@ -111,33 +124,81 @@ export default function Navbar() {
 
     return (
         <nav className={styles.nav}>
-            <p>Navbar</p>
-            <ul>
-                <li>
-                    <Link href='/explore'>
-                        Explore
-                    </Link>
-                </li>
-                <li>
-                    <Link href='/create'>
-                        Create
-                    </Link>
-                </li>
-                <li>
-                    <Link href='/profile'>
-                        Profile
-                    </Link>
-                </li>
-            </ul>
-            {isConnected ? (
-                <p>{(formatAddress(address))}</p>
-            ) : (
-                <button onClick={connectMetamask}>
-                Connect
-            </button>
+          <div className={styles.navbarContainer + " container"}>
+            <div className={styles.content}>
+              <div className={styles.logo}>
+                <Link href="/" className={styles.logoImg}>
+                  <Image
+                  src="/imgs/logo.svg"
+                  alt='Darkgroove logo'
+                  width={180}
+                  height={37}
+                  priority   
+                  />
+                </Link>
+              </div>
+              <div className={styles.center}>
+                <ul>
+                  <li>
+                      <Link href='/explore' className={styles.navLink}>
+                          Explore
+                      </Link>
+                  </li>
+                  <li>
+                      <Link href='/create' className={styles.navLink}>
+                          Create
+                      </Link>
+                  </li>
+                  <li>
+                      <Link href='/profile' className={styles.navLink}>
+                          Profile
+                      </Link>
+                  </li>
+                </ul>
+                <SearchBar />
+              </div>
+              <div className={styles.right}>
+                {isConnected ? (
+                  <div className={styles.connectBtn}>
+                    <button>
+                      {(formatAddress(address))}
+                      <Image
+                        src="/icons/chevron.svg"
+                        alt="Chevron icon"
+                        width={40}
+                        height={40}
+                      />
+                    </button>
+                    <div className={styles.dropdown}>
+                      <Link href="#" onClick={disconnectMetamask} className={styles.dropdownLink}>
+                      <Image
+                        src="/icons/logout.svg"
+                        alt="Logout icon"
+                        width={40}
+                        height={40}
+                      />
+                      Disconnect
+                      </Link>
+                    </div>
+                  </div>
+                ) : (
+                  <div className={styles.connectBtn}>
+                    <button onClick={connectMetamask}>Connect wallet
+                    </button>
+                  </div>
+                )}
+              </div>
+              {/* <button className={styles.toggleBtn} type="button" onClick={toggleOpenNavbar} data-open={isNavbarOpen}>
+                <div className={styles.tbBar1}></div>
+                <div className={styles.tbBar2}></div>
+                <div className={styles.tbBar3}></div>
+              </button> */}
 
-            )
-        }
+            </div>
+
+          </div>
+            
+            
             
 
         </nav>
