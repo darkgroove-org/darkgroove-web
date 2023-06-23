@@ -32,8 +32,8 @@
   --text-place-holder: #4B5272;
 
   --white: #FFFFFF;
-
-  --white-filter: invert(99%) sepia(4%) saturate(5632%) hue-rotate(289deg) brightness(117%) contrast(100%);
+  --white-filter: invert(99%) sepia(4%) saturate(5632%) hue-rotate(289deg) brightness(117%) contrast(100%); /* from black svg to white svg icon */
+  
 
   --font-size: .95rem;
   --font-size-xl: 4.2rem;

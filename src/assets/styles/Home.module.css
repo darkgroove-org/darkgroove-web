@@ -1,4 +1,2 @@
-.content { display: flex; align-items: center;
-    border: 1px solid red; height: 90vh;}
-.content .row { border: 1px solid blue;}
+.content { display: flex; align-items: center; height: 90vh;}
 .content .row .col-5 { gap: 2rem;}

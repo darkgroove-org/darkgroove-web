@@ -28,7 +28,7 @@ export default function Home() {
                 <Link href='/explore' className={stylesGlobal.btnTypeOne}>
                   Start exploring
                 </Link>
-                <Link href='https://github.com' className={stylesGlobal.btnTypeTwo} target='_blank'>
+                <Link href='https://github.com/darkgroove-org' className={stylesGlobal.btnTypeTwo} target='_blank'>
                   Learn more
                 </Link>
               </div>
