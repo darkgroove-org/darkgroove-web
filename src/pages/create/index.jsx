@@ -1,5 +1,6 @@
+import CreateT from '@/components/CreateT'
 export default function Create(){
     return(
-        <div>hola create</div>
+        <div><CreateT/> </div>
     )
 }
